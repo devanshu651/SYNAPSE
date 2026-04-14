@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Synapse | Code Environment</title>
+  
+  <!-- Preconnect and Fonts: Using refined modern typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <div class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+        <span>SYNAPSE</span>
+      </div>
+      <div class="project-badge">Developed by Devanshu</div>
+    </div>
+    
+    <div class="nav-right">
+      <div class="toggle-container">
+        <span class="toggle-label">Auto-Run</span>
+        <label class="switch">
+          <input type="checkbox" id="auto-run-toggle" checked>
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <button id="run-btn" class="btn btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+        Run
+      </button>
+      <button id="clear-btn" class="btn btn-secondary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="3 6 5 6 21 6"></polyline>
+          <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+        </svg>
+        Clear
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Application Area -->
+  <main class="app-container">
+    
+    <!-- Mobile Tabs -->
+    <div class="mobile-tabs" id="mobile-tabs">
+      <button class="tab-btn active" data-target="html-pane">HTML</button>
+      <button class="tab-btn" data-target="css-pane">CSS</button>
+      <button class="tab-btn" data-target="js-pane">JAVASCRIPT</button>
+    </div>
+
+    <!-- Code Editors Panel Splitter -->
+    <div class="editors-container" id="editors-container">
+      
+      <!-- HTML Editor -->
+      <div class="editor-pane html-pane">
+        <div class="pane-header">
+          <div class="pane-title">
+            <span class="dot html-dot"></span>
+            HTML
+          </div>
+        </div>
+        <textarea id="html-editor" autocomplete="off" spellcheck="false" placeholder="<!-- Write your structural HTML here... -->
+<div class=&quot;greeting&quot;>
+  <h1>Hello, World!</h1>
+</div>"></textarea>
+      </div>
+
+      <!-- CSS Editor -->
+      <div class="editor-pane css-pane">
+        <div class="pane-header">
+          <div class="pane-title">
+            <span class="dot css-dot"></span>
+            CSS
+          </div>
+        </div>
+        <textarea id="css-editor" autocomplete="off" spellcheck="false" placeholder="/* Style your application... */
+body {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: #f0f4f8;
+}
+
+.greeting h1 {
+  color: #4f46e5;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}"></textarea>
+      </div>
+
+      <!-- Javascript Editor -->
+      <div class="editor-pane js-pane">
+        <div class="pane-header">
+          <div class="pane-title">
+            <span class="dot js-dot"></span>
+            JAVASCRIPT
+          </div>
+        </div>
+        <textarea id="js-editor" autocomplete="off" spellcheck="false" placeholder="// Add interactivity...
+const heading = document.querySelector('h1');
+
+heading.addEventListener('click', () => {
+    heading.textContent = 'Synapse Engine Active 🚀';
+    heading.style.color = '#ef4444';
+});"></textarea>
+      </div>
+      
+    </div>
+
+    <!-- Resizer -->
+    <div class="resizer" id="resizer">
+      <div class="resizer-handle"></div>
+    </div>
+
+    <!-- Output Preview Panel -->
+    <div class="output-wrapper" id="output-wrapper">
+      <div class="pane-header output-header">
+        <div class="pane-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+          LIVE PREVIEW
+        </div>
+      </div>
+      <div class="iframe-container">
+        <iframe id="output-frame" title="Live Preview"></iframe>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
